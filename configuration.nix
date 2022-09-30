@@ -30,6 +30,8 @@
     useXkbConfig = true;
   };
 
+  fonts.fontconfig.cache32Bit = true;
+
   services = {
     avahi = {
       enable = true;
@@ -65,7 +67,15 @@
   sound.enable = true;
 
   hardware = {
-    pulseaudio.enable = true;
+    cpu.intel.updateMicrocode = true;
+    pulseaudio = {
+      enable = true;
+      support32Bit = true;
+    };
+    opengl = {
+      enable = true;
+      driSupport32Bit = true;
+    };
   };
 
   zramSwap = {
